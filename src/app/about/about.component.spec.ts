@@ -22,4 +22,10 @@ describe('AboutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should have a text about works', async(() => {
+    const fixture = TestBed.createComponent(AboutComponent);
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('p').textContent).toContain('about works!');
+  }));
 });
