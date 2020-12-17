@@ -14,6 +14,7 @@ describe('AboutComponent', () => {
   });
 
   beforeEach(() => {
+    // testbed allows to create an angular environment for the component being tested
     fixture = TestBed.createComponent(AboutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -23,9 +24,31 @@ describe('AboutComponent', () => {
     expect(component).toBeTruthy();
   });
   
-  it('should have a text about works', async(() => {
-    const fixture = TestBed.createComponent(AboutComponent);
+  // template hardcoded text testing
+  it(`should have a text 'about works'`, async(() => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('p').textContent).toContain('about works!');
+  }));
+
+  // component variable text testing
+  it(`Should have a text 'this is about section'`, async(() => {
+    expect(component.heading).toEqual('this is about section');
+  }));
+
+  // component variable number testing
+  it(`Should have a number 100`, async(() => {
+    expect(component.value).toEqual(100);
+  }));
+
+  // boolean value testing
+  it('Should have false value', async(() => {
+    expect(component.toggleValue).toEqual(false);
+  }))
+
+  // component rendered text testing
+  it(`Should have a rendered text 'Hello, this is about section'`, async(() => {
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toEqual('hello, this is about section');
   }));
 });
