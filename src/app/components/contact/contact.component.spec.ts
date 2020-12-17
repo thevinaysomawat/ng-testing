@@ -41,16 +41,6 @@ describe('ContactComponent', () => {
     expect(component.submitted).toBeTruthy();
   }));
 
-  // funcation call on button click testing
-  // it('Should call the onSubmit method', async (() => {
-  //   fixture.detectChanges();
-  //   spyOn(component, 'onSubmit');
-  //   // “By” is going to allow us to select elements from the DOM.
-  //   el = fixture.debugElement.query(By.css('button')).nativeElement;
-  //   el.click();
-  //   expect(component.onSubmit).toHaveBeenCalled();
-  // }));
-
   it(`should call the onSubmit method`, async(() => {
     spyOn(component, 'onSubmit');
     el = fixture.debugElement.query(By.css('button')).nativeElement;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UnittestingService } from '../../services/unittesting.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public users;
+  constructor(private unittestingService: UnittestingService) {
+    this.users = unittestingService.getUsers();
+  }
 
   ngOnInit(): void {
   }
